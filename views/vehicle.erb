@@ -1,3 +1,7 @@
 <h1>Vehicle Details</h1>
-
-<h2><%= @vehicle.make %></h2>
+<ul>
+  <li>Make: <%= @vehicle.make %></li>
+  <li>Model: <%= @vehicle.model %></li>
+  <li>Year: <%= @vehicle.year %></li>
+  <li>Age: <%= @vehicle.age.to_i %> years</li>
+</ul>

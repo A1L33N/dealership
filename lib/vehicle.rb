@@ -1,5 +1,5 @@
 class Vehicle
-  #attr_accessor :make, :model, :year, :id
+  attr_reader :make, :model, :year, :id
   @@all_cars = []
 
   define_method(:initialize) do |make, model, year|
@@ -9,9 +9,9 @@ class Vehicle
     @id = @@all_cars.length.+(1)
   end
 
-  define_method(:make) do
-    @make
-  end
+    # define_method(:make) do
+    #   @make
+    # end
 
   define_method(:save) do
     @@all_cars.push(self)
@@ -31,11 +31,13 @@ class Vehicle
   end
 
   define_singleton_method(:find) do |id_number|
+    found_vehicle = nil
     @@all_cars.each() do |vehicle|
-      if vehicle.id == id_number
-        return vehicle
+      if vehicle.id == id_number.to_i
+        found_vehicle = vehicle
       end
     end
+    found_vehicle
   end
 
 end

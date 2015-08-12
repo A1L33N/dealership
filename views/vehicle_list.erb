@@ -1,6 +1,6 @@
 <h1>Available Vehicles</h1>
 <ul>
-  <% @@all_cars.each() do |vehicle|%>
+  <% @@car_list.each() do |vehicle|%>
     <li> <a href='/vehicle/<%= vehicle.id %>'><%= vehicle.make%>, <%= vehicle.model %></a></li>
   <% end %>
 </ul>
