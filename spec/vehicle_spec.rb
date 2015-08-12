@@ -3,29 +3,54 @@ require('vehicle')
 
 describe('Vehicle') do
   before() do
-    @test_car = Vehicle.new('Ford', 'Escape', 2013)
+    Vehicle.clear
   end
+
   describe '#make' do
     it('it returns the make of the car') do
-      expect(@test_car.make).to eq 'Ford'
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      expect(test_car.make).to eq 'Ford'
     end
   end
 
   describe '#model' do
     it('returns the model of the car') do
-      expect(@test_car.model).to eq 'Escape'
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      expect(test_car.model).to eq 'Escape'
     end
   end
 
   describe '#year' do
     it('returns the year of the car') do
-      expect(@test_car.year).to eq 2013
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      expect(test_car.year).to eq 2013
     end
   end
 
   describe '#save' do
     it 'saves the car into an array of cars' do
-      expect(@test_car.save).to eq ([@test_car])
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      expect(test_car.save).to eq ([test_car])
+    end
+  end
+
+  describe '.all' do
+    it 'is initialized to empty' do
+      expect(Vehicle.all).to eq []
+    end
+  end
+
+  describe '.clear' do
+    it 'empties out the list of saved cars' do
+      Vehicle.clear
+      expect(Vehicle.all).to eq []
+    end
+  end
+
+  describe '#age' do
+    it 'returns the age of the vehicle' do
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      expect(test_car.age).to eq 2
     end
   end
 end
