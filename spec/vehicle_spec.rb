@@ -1,5 +1,6 @@
 require('rspec')
 require('vehicle')
+require('pry')
 
 describe('Vehicle') do
   before() do
@@ -59,6 +60,17 @@ describe('Vehicle') do
       test_car = Vehicle.new('Ford', 'Escape', 2013)
       test_car.save
       expect(test_car.id).to eq 1
+    end
+  end
+
+  describe '.find' do
+    it 'returns the car by the id number' do
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      test_car.save
+      test_car2 = Vehicle.new('Honda', 'Civic', 2005)
+      test_car2.save
+
+      expect(Vehicle.find(2)).to eq(test_car2)
     end
   end
 end

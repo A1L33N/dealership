@@ -26,4 +26,12 @@ class Vehicle
     car_age = current_year.-(@year)
   end
 
+  define_singleton_method(:find) do |id_number|
+    @@all_cars.each() do |vehicle|
+      if vehicle.id == id_number
+        return vehicle
+      end
+    end
+  end
+
 end
