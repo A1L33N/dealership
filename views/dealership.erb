@@ -1,0 +1,32 @@
+<h1>Welcome to <%=@@dealership.name %>!</h1>
+
+<h2>Available cars</h2>
+<ul>
+  <% @@dealership.cars.each() do |car| %>
+    <li><a href='/vehicles/<%=car.id %>'><%= car.make() %>, <%= car.model() %></li>
+  <% end %></a>
+</ul>
+
+<h2>Add your vehicle</h2>
+<form id="" action="/add_vehicle" method="post">
+  <div class="form-group">
+    <label for="car_make">Enter the make of the car</label>
+    <input name="car_make" class="form-control" type="text">
+  </div>
+
+  <div class="form_group">
+    <label for="car_model">Enter the model of the car</label>
+    <input type="text" name="car_model" class="form_control">
+  </div>
+
+  <div class="form_group">
+    <label for="car_year">Enter the year of the car</label>
+    <input type="number" name="car_year" class="form_control">
+  </div>
+
+  <button type="submit" class="btn" name="Add">Add vehicle</button>
+</form>
+
+<a href="/">Return to home</a>
+<!-- <h2><a href="/vehicle_list">See Vehicles</a></h2>
+<h2><a href="/add_vehicle">Add a Vehicle</a></h2> -->

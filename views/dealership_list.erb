@@ -1,0 +1,8 @@
+<h1>Sketchy Dealerships Near You</h1>
+<ul>
+  <% @@dealership_list.each() do |dealership|%>
+    <li> <a href='/dealership/<%= dealership.id %>'><%= dealership.name %></a></li>
+  <% end %>
+</ul>
+
+<a href="/">Return to main</a>
