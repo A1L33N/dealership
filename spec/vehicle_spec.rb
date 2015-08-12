@@ -22,4 +22,10 @@ describe('Vehicle') do
       expect(@test_car.year).to eq 2013
     end
   end
+
+  describe '#save' do
+    it 'saves the car into an array of cars' do
+      expect(@test_car.save).to eq ([@test_car])
+    end
+  end
 end
