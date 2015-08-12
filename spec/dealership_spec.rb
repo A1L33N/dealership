@@ -1,5 +1,6 @@
 require 'rspec'
 require 'dealership'
+require 'vehicle'
 
 describe(Dealership) do
   before do
@@ -48,4 +49,23 @@ describe(Dealership) do
       expect(Dealership.find(2)).to eq(test_dealership2)
     end
   end
+
+  describe "#cars" do
+    it 'initially returns and empty array of cars for the dealership' do
+      test_dealership = Dealership.new('Used Car for You!')
+      expect(test_dealership.cars).to eq []
+    end
+  end
+
+  describe "add_vehicle" do
+    it "adds a vehicle to a dealership" do
+      test_dealership = Dealership.new('Used Car for You!')
+      test_car = Vehicle.new('Scion', 'FRS', 2012)
+      test_car2 = Vehicle.new('Ford', 'Fusion', 2010)
+      test_dealership.add_vehicle(test_car)
+      test_dealership.add_vehicle(test_car2)
+      expect(test_dealership.cars()).to eq([test_car, test_car2])
+    end
+  end
+
 end

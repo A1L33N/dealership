@@ -1,10 +1,11 @@
 class Dealership
   @@dealerships = []
 
-  attr_reader :name, :id
+  attr_accessor :name, :id, :cars
   define_method(:initialize) do |name|
     @name = name
     @id = @@dealerships.length + 1
+    @cars = []
   end
 
   define_singleton_method(:all) do
@@ -14,6 +15,10 @@ class Dealership
   define_method(:save) do
     @@dealerships.push(self)
   end
+
+  # define_method(:cars) do
+  #   @cars
+  # end
 
   define_singleton_method(:clear) do
     @@dealerships = []
@@ -25,5 +30,9 @@ class Dealership
         return dealership
       end
     end
+  end
+
+  define_method(:add_vehicle) do |car|
+    @cars.push(car)
   end
 end
