@@ -53,4 +53,12 @@ describe('Vehicle') do
       expect(test_car.age).to eq 2
     end
   end
+
+  describe '#id' do
+    it 'returns the id of a car' do
+      test_car = Vehicle.new('Ford', 'Escape', 2013)
+      test_car.save
+      expect(test_car.id).to eq 1
+    end
+  end
 end

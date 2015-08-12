@@ -1,11 +1,12 @@
 class Vehicle
-  attr_accessor :make, :model, :year
+  attr_accessor :make, :model, :year, :id
   @@all_cars = []
 
   define_method(:initialize) do |make, model, year|
     @make = make
     @model = model
     @year = year
+    @id = @@all_cars.length.+(1)
   end
 
   define_method(:save) do
@@ -22,6 +23,7 @@ class Vehicle
 
   define_method(:age) do
     current_year = Time.new().year()
-    car_age = current_year.-(@year) 
+    car_age = current_year.-(@year)
   end
- end
+
+end
