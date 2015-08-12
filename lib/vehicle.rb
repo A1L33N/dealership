@@ -1,5 +1,5 @@
 class Vehicle
-  attr_accessor :make, :model, :year, :id
+  #attr_accessor :make, :model, :year, :id
   @@all_cars = []
 
   define_method(:initialize) do |make, model, year|
@@ -7,6 +7,10 @@ class Vehicle
     @model = model
     @year = year
     @id = @@all_cars.length.+(1)
+  end
+
+  define_method(:make) do
+    @make
   end
 
   define_method(:save) do

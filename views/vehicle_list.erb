@@ -1,0 +1,12 @@
+<h1>Available Vehicles</h1>
+<ul>
+  <% @@all_cars.each() do |vehicle|%>
+    <li> <a href='/vehicle/<%= vehicle.id %>'><%= vehicle.make%>, <%= vehicle.model %></a></li>
+  <% end %>
+</ul>
+
+<form action="/clear" method="post">
+  <button type="submit">Clear List</button>
+</form>
+<!-- <a href='/vehicle_list'><button name="button">Clear vehicles</button></a> -->
+<a href="/">Back to main</a>
