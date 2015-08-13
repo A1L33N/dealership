@@ -46,6 +46,10 @@ get('/vehicle/:id') do
  erb(:vehicle)
 end
 
+get('/clear') do
+  Dealership.clear
+  redirect("/dealership_list")
+end
 
 # get('/add_vehicle') do
 #   erb(:add_vehicle)
