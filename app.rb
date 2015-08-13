@@ -29,10 +29,7 @@ get('/dealership/:id') do
   erb(:dealership)
 end
 
-get('/add_vehicle') do
-  erb(:add_vehicle)
 
-end
 
 post('/add_vehicle') do
   @car_make = params.fetch('car_make')
@@ -42,6 +39,11 @@ post('/add_vehicle') do
   @new_car.save
   @@dealership.add_vehicle(@new_car)
   erb(:dealership)
+end
+
+get('/vehicle/:id') do
+ @new_car = Vehicle.find(params.fetch("id").to_i)
+ erb(:vehicle)
 end
 
 
